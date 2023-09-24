@@ -1,0 +1,16 @@
+---
+- name: "Test Task"
+  hosts: sat_primary
+  remote_user: ansiblerunner
+  become: true
+  gather_facts: true
+  vars_files:
+    - vars/satellite_vault.yml
+    - vars/satellite_pre_vars.yml
+    - vars/satellite_vars.yml
+    - vars/satellite_provisioning_vars_vmware.yml
+
+  tasks:
+  
+  - name: "run the test task"
+    ansible.builtin.include_tasks: roles/satellite_post/tasks/configure_virtwho.yml
