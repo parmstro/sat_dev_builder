@@ -7,3 +7,9 @@ You can edit the variable files to create whatever configurations you need.
 Part of the goal of this particular adventure is to start building the structure and content to define a bunch of different know configurations for Satellite, with the goal of being able to share them and use them to drive IaC for Satellite configuration and pipelines for testing Standard Operating Environments.
 
 Contributions and Pull Requests welcome. 
+
+### Notes:
+
+What you need to get started:
+- the requirements files take care of the dependencies. If you find something missing, please let us know.
+- You need an ansible vault file named 'rhisbuilder_vault.yml' in your home directory. It contains all your secrets.
