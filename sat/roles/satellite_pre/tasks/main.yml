@@ -38,9 +38,3 @@
     - mandatory
     - idmclient
     - check_certs
-
-- ansible.builtin.import_tasks: foreman_prepare_realm.yml
-  tags:
-    - mandatory
-    - idmclient
-    - prepare_realm

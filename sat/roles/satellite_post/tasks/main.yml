@@ -3,6 +3,7 @@
 # As this is a role for the configuration of a complex single system, this is a necessarily long and involved file.
 # Please take the time to read the documentation especially around the variables that you should set (and those you might wish to leave alone!)
 # Content Configuration
+# - prepare realm
 # - configure hammer
 # - download and install a Red Hat manifest to access content.
 # - configure Red Hat repositories.
@@ -37,6 +38,12 @@
 # - configure hostgroups
 # - add admin users - cloud connector, ansible
 
+- import_tasks: "{{ role_path }}/tasks/foreman_prepare_realm.yml"
+  when: "'foreman-proxy-realm true' in {{ sat_installer_options }}"
+  tags:
+    - tags_mandatory
+    - tags_basic_config
+    - tags_prepare_idm_realm
 
 - import_tasks: "{{ role_path }}/tasks/configure_hammer.yml"
   tags:
@@ -45,12 +52,14 @@
     - tags_configure_hammer
 
 - import_tasks: "{{ role_path }}/tasks/create_manifest.yml"
+  when: manifest_create_manifest == true
   tags:
     - tags_mandatory
     - tags_basic_config
     - tags_manifest
-
+  
 - import_tasks: "{{ role_path }}/tasks/fetch_manifest.yml"
+  when: manifest_fetch_manifest == true
   tags:
     - tags_mandatory
     - tags_basic_config
