@@ -10,6 +10,23 @@ Contributions and Pull Requests welcome.
 
 ### Notes:
 
+There are a *lot* of variables!
+You will need to update them for your environment. Part of this project will be to provide many samples in the directory that supports the target configuration.
+e.g. We will put sample manifest configurations in the vars/manifest directory
+
 What you need to get started:
-- the requirements files take care of the dependencies. If you find something missing, please let us know.
-- You need an ansible vault file named 'rhisbuilder_vault.yml' in your home directory. It contains all your secrets.
+- the requirements file should take care of the ansible dependencies. If you find something missing, please let us know.
+- You need:
+  - an ansible vault file named 'rhisbuilder_vault.yml' in your home directory. It contains all your secrets. The main variable required here is 'token:' - your refresh token for imagebuilder on console.redhat.com
+  - a vault password file to decrypt the above and any other vault files that are present. More on that later.
+    
+This is a work in progress, so trying to ensure all this is documented will take time.
+The big thinks to set up in the variable files.
+- your installer config
+- your network - domain names, ip ranges, etc..
+- your virtual environment / compute resources / compute profiles
+- OSCAP files
+- many of the other satellite configurations are designed to give you a running satellite environment with a solid starting point for an SOE
+
+Please open issues if you want to request something or find a bug.
+
