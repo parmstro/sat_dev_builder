@@ -1,0 +1,13 @@
+---
+# Vars for organizations and locations
+locations:
+  - name: EastCoast
+    description: "Boston DataCenter"
+  - name: WestCoast
+    description: "Phoenix DataCenter"
+
+organizations:
+  - name: SampleOrganization
+    locations:
+      - name: EastCoast
+      - name: WestCoast

@@ -4,12 +4,11 @@ satellite_fqdn: "{{ ansible_fqdn }}"
 satellite_domain: "{{ ansible_domain }}"
 
 satellite_url: "https://{{ satellite_fqdn }}"
-satellite_initial_organization: "Default Organization"
-satellite_initial_location: "Default Location"
 satellite_admin_username: "{{ sat_inital_admin_username_vault }}"
 satellite_admin_password: "{{ sat_inital_admin_password_vault }}"
 satellite_validate_certs: true
-
+satellite_initial_organization: "Default Organization"
+satellite_initial_location: "Default Location"
 satellite_admin_email: "{{ satellite_admin_username}}@{{ satellite_domain }}"
 
 async_timeout: 14400
@@ -18,31 +17,17 @@ async_delay: 15
 cv_publish_timeout: "{{ async_timeout }}"
 cv_publish_retry_interval: "{{ async_delay }}"
 
+#see vars/manifest
+# true - creates the manifest using specified settings
+# false - expects valid manifest in manifest_path
+manifest_create_manifest: true
+# ignored when create is true
+# true - fetch the manifest using specified settings
+# false - expects valid manifest in manifest_path
+manifest_fetch_manifest: true
 
-# Satellite Configuration Variables
-manifest_name: "satdev.parmstrong.ca"
-manifest_path: "/root/dev_bootstrap_manifest.zip"
-manifest_portal_url: "https://subscription.rhsm.redhat.com"
-manifest_validate_certs: true
-manifest_cdn_username: "{{ cdn_username_vault }}"
-manifest_cdn_password: "{{ cdn_password_vault }}"
-manifest_account: "{{ cdn_account_number_vault }}"
-manifest_subs:
-  - name: "Base"
-    pool_id: "2c942c3586e8eba20186f1455d851eff"
-    qty: 100
-  - name: "Ansible"
-    pool_id: "2c942c3586e8eba20186f1455d8e1f03"
-    qty: 30
-  - name: "SatCapsule"
-    pool_id: "2c942c3586e8eba20186f1455ead1f07"
-    qty: 1
-  - name: "NonRHEL"
-    pool_id: "2c946bbb86ea234a0186f1459e13397e"
-    qty: 100
-
-# organizations
-# locations
+# see var/orgs for organization and location variables
+# 
 
 # Red Hat Repositories
 # - mandatory: make demos work - this pattern is used throughout

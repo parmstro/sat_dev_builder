@@ -1,0 +1,24 @@
+---
+# vars to create and pull manifest from cdn
+manifest_name: "satdev.parmstrong.ca"
+manifest_path: "/root/dev_bootstrap_manifest.zip"
+manifest_portal_url: "https://subscription.rhsm.redhat.com"
+manifest_validate_certs: true
+manifest_cdn_username: "{{ cdn_username_vault }}"
+manifest_cdn_password: "{{ cdn_password_vault }}"
+manifest_account: "{{ cdn_account_number_vault }}"
+manifest_content_access_mode: "entitlement"          #setting to "org_environment" enables SCA
+manifest_subs:
+  - name: "Base"
+    pool_id: "2c942c3586e8eba20186f1455d851eff"
+    qty: 100
+  - name: "Ansible"
+    pool_id: "2c942c3586e8eba20186f1455d8e1f03"
+    qty: 30
+  - name: "SatCapsule"
+    pool_id: "2c942c3586e8eba20186f1455ead1f07"
+    qty: 1
+  - name: "NonRHEL"
+    pool_id: "2c946bbb86ea234a0186f1459e13397e"
+    qty: 100
+
