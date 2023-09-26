@@ -93,7 +93,7 @@ compute_profiles_mandatory:
               name: "Hard disk"
               mode: "persistent"
               controller_key: 1000
-              datastore: "SYN_VMS"
+              datastore: "NAS1_VMS"
               size_gb: 65
           interfaces_attributes:
             0:
@@ -127,7 +127,7 @@ compute_profiles_mandatory:
               name: "Hard disk"
               mode: "persistent"
               controller_key: 1000
-              datastore: "SYN_VMS"
+              datastore: "NAS1_VMS"
               size_gb: 100
           interfaces_attributes:
             0:
@@ -161,7 +161,7 @@ compute_profiles_mandatory:
               name: "Hard disk"
               mode: "persistent"
               controller_key: 1000
-              datastore: "SYN_VMS"
+              datastore: "NAS1_VMS"
               size_gb: 100
           interfaces_attributes:
             0:
