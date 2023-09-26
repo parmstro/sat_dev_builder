@@ -10,6 +10,8 @@ Contributions and Pull Requests welcome.
 
 ### Notes:
 
+At this time, do not run ansible-playbook ... site.yml as the code currently does not build the other elements of the site. See below.
+
 There are a *lot* of variables!
 You will need to update them for your environment. Part of this project will be to provide many samples in the directory that supports the target configuration.
 e.g. We will put sample manifest configurations in the vars/manifest directory
@@ -29,4 +31,12 @@ The big thinks to set up in the variable files.
 - many of the other satellite configurations are designed to give you a running satellite environment with a solid starting point for an SOE
 
 Please open issues if you want to request something or find a bug.
+
+
+### Run the playbook to install and configure a Satellite Server
+
+The following will work for a baremetal deployment (pre-provisioned host) or vmware deployment.
+
+ansible-playbook -i inventory sat/main.yml -e "rhisbuilder_bootstrap_target='vmware'"  
+
 
