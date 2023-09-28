@@ -1620,6 +1620,8 @@ scap_policies:
 general_settings:
   - name: destroy_vm_on_host_delete
     value: true
+  - name: remote_execution_by_default
+    value: true
 
 # users
 # groups
